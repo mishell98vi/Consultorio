@@ -67,7 +67,7 @@ public class frmDoctor extends JInternalFrame {
         
         txtHorario = new JTextField();
         txCodi0 = new JTextField();
-        cmbEspecialidad = new JComboBox(new String[]{"medicina general", "odontologia","traumatologia"});
+        cmbEspecialidad = new JComboBox(new String[]{"medicina general", "odontologia","traumatologia","Cardiologia","Dermatologia"});
         
         btnLimpiar = new JButton("Limpiar");
         btnAceptar = new JButton("Aceptar");
@@ -122,8 +122,19 @@ public class frmDoctor extends JInternalFrame {
             doc.setNombre(txtNombre.getText());
             doc.setApellido(txtApellido.getText());
             doc.setHorario(txtHorario.getText());
-            doc.setEspecialidad(cmbEspecialidad.getSelectedIndex() == 0 ? "medicina general": "traumatologia");
-            doc.setEspecialidad((Especialidad) cmbEspecialidad.getSelectedItem());
+            int opcionEspecialidad=0;
+            opcionEspecialidad=cmbEspecialidad.getSelectedIndex();
+            if(opcionEspecialidad==0){
+                doc.setEspecialidad("medicina general");
+            } else if(opcionEspecialidad==1){
+                doc.setEspecialidad("odontologia");
+            }else if(opcionEspecialidad==2){
+                doc.setEspecialidad("traumatologia");
+            }else if(opcionEspecialidad==3){
+                doc.setEspecialidad("Cardiologia");
+            }else if(opcionEspecialidad==4){
+                doc.setEspecialidad("Dermatologia");
+            }
                 if (docDao.insertar(doc) > 0) {
                     JOptionPane.showMessageDialog(this, "Proceso Completado!!", "Transaction", JOptionPane.INFORMATION_MESSAGE);
 
