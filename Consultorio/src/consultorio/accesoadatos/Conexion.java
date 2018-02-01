@@ -5,9 +5,9 @@ import java.util.*;
 public class Conexion {
     Scanner entrada = new Scanner(System.in);
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url = "jdbc:sqlserver://172.30.3.159:1433;databaseName=Tratamiento1";
-    String usr = "gptratamiento";
-    String pass = "grupot";
+    String url = "jdbc:sqlserver://localhost:1433;databaseName=Tratamiento";
+    String usr = "mishell";
+    String pass = "123";
     Connection con = null;
     public void conectar() {
         try {
