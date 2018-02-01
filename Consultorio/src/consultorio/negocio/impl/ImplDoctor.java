@@ -15,7 +15,7 @@ public class ImplDoctor implements IDoctor {
         lstP.add(new Parametro(1, doctor.getCodigo()));
         lstP.add(new Parametro(2, doctor.getNombre()));
         lstP.add(new Parametro(3, doctor.getApellido()));
-        lstP.add(new Parametro(4, doctor.getEspeciadlidad()));
+        lstP.add(new Parametro(4, doctor.getEspecialidad()));
         lstP.add(new Parametro(5, doctor.getHorario()));
         Conexion con = null;
         try {
@@ -40,7 +40,7 @@ public class ImplDoctor implements IDoctor {
         lstPar.add(new Parametro(1, doctor.getCodigo()));
         lstPar.add(new Parametro(2, doctor.getNombre()));
         lstPar.add(new Parametro(3, doctor.getApellido()));
-        lstPar.add(new Parametro(4, doctor.getEspeciadlidad()));
+        lstPar.add(new Parametro(4, doctor.getEspecialidad()));
         lstPar.add(new Parametro(5, doctor.getHorario()));
         lstPar.add(new Parametro(6, doctor.getCodigo()));
         Conexion con=null;
@@ -95,7 +95,7 @@ public class ImplDoctor implements IDoctor {
                 doc.setCodigo(rst.getString(1));
                 doc.setNombre(rst.getString(2));
                 doc.setApellido(rst.getString(3));
-                doc.setEspeciadlidad(rst.getString(4));
+                doc.setEspecialidad(rst.getString(4));
                 doc.setHorario(rst.getString(5));
             }
         } catch (Exception e) {
@@ -123,7 +123,7 @@ public class ImplDoctor implements IDoctor {
                 doc.setCodigo(rst.getString(1));
                 doc.setNombre(rst.getString(2));
                 doc.setApellido(rst.getString(3));
-                doc.setEspeciadlidad(rst.getString(4));
+                doc.setEspecialidad(rst.getString(4));
                 doc.setHorario(rst.getString(5));
                 docs.add(doc);
             }
