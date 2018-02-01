@@ -70,5 +70,8 @@ public class Paciente {
         this.enfermedad = enfermedad;
     }
 
-
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

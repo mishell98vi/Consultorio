@@ -28,10 +28,6 @@ public class frmDoctor extends JInternalFrame {
     JTextField txtNombre;
     JTextField txtApellido;
     JTextField txtHorario;
-    
-    
-    JTextField txtTitulo;
-    JTextField txCodi0;
 
     JComboBox cmbEspeciliadad;
 
@@ -45,42 +41,35 @@ public class frmDoctor extends JInternalFrame {
         this.setLayout(new BorderLayout());
         pnlcentral = new JPanel();
         pnlpie = new JPanel();
-
-        pnlcentral.setLayout(new GridLayout(10, 2, 5, 5));
+        
+        pnlcentral.setLayout(new GridLayout(5, 2, 10, 10));
         pnlpie.setLayout(new GridLayout(1, 2, 5, 5));
         titulo = new JLabel("Datos del Doctor");
 
         codigo = new JLabel("Codigo  Doctor");
-
         nombre = new JLabel("Nombre");
-
         apellido = new JLabel("Apellido");
-
         especialidad = new JLabel("Especialidad");
-
         horario = new JLabel("Horario");
 
         
         txtCodigo = new JTextField();
         txtNombre = new JTextField();
         txtApellido = new JTextField();
-        
         txtHorario = new JTextField();
-        txCodi0 = new JTextField();
         cmbEspecialidad = new JComboBox(new String[]{"medicina general", "odontologia","traumatologia","Cardiologia","Dermatologia"});
         
         btnLimpiar = new JButton("Limpiar");
         btnAceptar = new JButton("Aceptar");
-        this.add(titulo, BorderLayout.NORTH);
+        
         pnlcentral.add(codigo);
         pnlcentral.add(txtCodigo);
-        pnlcentral.add(codigo);
-        pnlcentral.add(txtNombre);
         pnlcentral.add(nombre);
-        pnlcentral.add(txtApellido);
+        pnlcentral.add(txtNombre);
         pnlcentral.add(apellido);
-        pnlcentral.add(txtHorario);
+        pnlcentral.add(txtApellido);
         pnlcentral.add(horario);
+        pnlcentral.add(txtHorario);
         pnlcentral.add(especialidad);
         pnlcentral.add(cmbEspecialidad);
 
@@ -114,9 +103,7 @@ public class frmDoctor extends JInternalFrame {
 
     public void btnAceptarActionListener(ActionEvent e) {
         IDoctor docDao = new ImplDoctor();
-
         try {
-
             Doctor doc = new Doctor();
             doc.setCodigo(txtCodigo.getText());
             doc.setNombre(txtNombre.getText());

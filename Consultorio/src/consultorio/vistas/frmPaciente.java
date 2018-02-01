@@ -45,21 +45,16 @@ public class frmPaciente extends JInternalFrame {
         pnlcentral = new JPanel();
         pnlpie = new JPanel();
 
-        pnlcentral.setLayout(new GridLayout(10, 2, 5, 5));
+        pnlcentral.setLayout(new GridLayout(6, 2, 5, 5));
         pnlpie.setLayout(new GridLayout(1, 2, 5, 5));
         titulo = new JLabel("Datos del Paciente");
 
         codigo = new JLabel("Codigo Paciente");
-
         nombre = new JLabel("Nombre");
-
         apellido = new JLabel("Apellido");
-
         fechaIng = new JLabel("Fecha Ingreso");
-
         fechaSal = new JLabel("Fecha Salida");
         enfermedad = new JLabel("Enfermedad");
-         titulo = new JLabel("Titulo");
         
         txtCodigo = new JTextField();
         txtNombre = new JTextField();
@@ -70,22 +65,20 @@ public class frmPaciente extends JInternalFrame {
         
         btnLimpiar = new JButton("Limpiar");
         btnAceptar = new JButton("Aceptar");
-        this.add(titulo, BorderLayout.NORTH);
+        
         pnlcentral.add(codigo);
         pnlcentral.add(txtCodigo);
-        pnlcentral.add(codigo);
-        pnlcentral.add(txtNombre);
         pnlcentral.add(nombre);
-        pnlcentral.add(txtApellido);
+        pnlcentral.add(txtNombre);
         pnlcentral.add(apellido);
-        pnlcentral.add(txtFechaing);
+        pnlcentral.add(txtApellido);
         pnlcentral.add(fechaIng);
-        pnlcentral.add(txtFechasal);
+        pnlcentral.add(txtFechaing);
         pnlcentral.add(fechaSal);
+        pnlcentral.add(txtFechasal);
         pnlcentral.add(enfermedad);
         pnlcentral.add(txtEnfermedad);
 
-   
         pnlpie.add(btnLimpiar);
         pnlpie.add(btnAceptar);
 
@@ -131,8 +124,6 @@ public class frmPaciente extends JInternalFrame {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Fecha Incorrecta", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-            
-           
                 if (pacDao.insertar(pac) > 0) {
                     JOptionPane.showMessageDialog(this, "Proceso Completado!!", "Transaction", JOptionPane.INFORMATION_MESSAGE);
 

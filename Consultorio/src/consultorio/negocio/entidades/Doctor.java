@@ -1,5 +1,7 @@
 package consultorio.negocio.entidades;
+
 public class Doctor {
+
     private String codigo;
     private String nombre;
     private String apellido;
@@ -56,5 +58,10 @@ public class Doctor {
     public void setHorario(String horario) {
         this.horario = horario;
     }
-    
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
+
 }
