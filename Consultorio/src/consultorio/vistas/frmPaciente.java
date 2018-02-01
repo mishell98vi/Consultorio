@@ -29,7 +29,7 @@ public class frmPaciente extends JInternalFrame {
     JTextField txtApellido;
     JTextField txtFechaing;  
     JTextField txtFechasal;
-    
+    JTextField txtEnfermedad;
     JTextField txtTitulo;
     
     JComboBox cmbenfermedad;
@@ -66,7 +66,7 @@ public class frmPaciente extends JInternalFrame {
         txtApellido = new JTextField();
         txtFechaing = new JTextField();
         txtFechasal = new JTextField();
-        cmbEnfermedad = new JComboBox(new String[]{"gripe", "dolor de estomago","anemia"});
+        txtEnfermedad = new JTextField();
         
         btnLimpiar = new JButton("Limpiar");
         btnAceptar = new JButton("Aceptar");
@@ -83,7 +83,7 @@ public class frmPaciente extends JInternalFrame {
         pnlcentral.add(txtFechasal);
         pnlcentral.add(fechaSal);
         pnlcentral.add(enfermedad);
-        pnlcentral.add(cmbEnfermedad);
+        pnlcentral.add(txtEnfermedad);
 
    
         pnlpie.add(btnLimpiar);
@@ -122,6 +122,8 @@ public class frmPaciente extends JInternalFrame {
             pac.setCodigo(txtCodigo.getText());
             pac.setNombre(txtNombre.getText());
             pac.setApellido(txtApellido.getText());
+             pac.setEnfermedad(txtEnfermedad.getText());
+
             DateFormat formatoFecha = new SimpleDateFormat("yyyy-MM-dd");
             try {
                 pac.setFechaIng(formatoFecha.parse(txtFechaing.getText()));
@@ -130,8 +132,7 @@ public class frmPaciente extends JInternalFrame {
                 JOptionPane.showMessageDialog(this, "Fecha Incorrecta", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             
-            pac.setEnfermedad(cmbEnfermedad.getSelectedIndex() == 0 ? "gripe": "anemia");
-            pac.setEnfermedad((Enfermedad) cmbEnfermedad.getSelectedItem());
+           
                 if (pacDao.insertar(pac) > 0) {
                     JOptionPane.showMessageDialog(this, "Proceso Completado!!", "Transaction", JOptionPane.INFORMATION_MESSAGE);
 
