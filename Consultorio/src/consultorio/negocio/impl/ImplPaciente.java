@@ -10,7 +10,7 @@ public class ImplPaciente implements IPaciente {
     @Override
     public int insertar(Paciente paciente) throws Exception {
         int nFilas = 0;
-        String csql = "Insert into Paciente (codigo, nombre, apellido, fechaIng, fechaSal, enfermedad) Values (?,?,?,?,?,?)";
+        String csql = "Insert into Paciente (codigo, nombre, apellido, fechaIng, fechaSali, enfermedad) Values (?,?,?,?,?,?)";
         ArrayList<Parametro> lstP = new ArrayList<>();
         lstP.add(new Parametro(1, paciente.getCodigo()));
         lstP.add(new Parametro(2, paciente.getNombre()));
@@ -46,7 +46,7 @@ public class ImplPaciente implements IPaciente {
     @Override
     public int modificar(Paciente paciente) throws Exception {
         int nFilas=0;
-        String csql="Update Paciente Set codigo=?, nombre=?, apellido=?, fechaIng=?, fechaSal=?, enfermedad=? Where codigo=?";
+        String csql="Update Paciente Set codigo=?, nombre=?, apellido=?, fechaIng=?, fechaSali=?, enfermedad=? Where codigo=?";
         ArrayList<Parametro> lstPar=new ArrayList<>();
         lstPar.add(new Parametro(1, paciente.getCodigo()));
         lstPar.add(new Parametro(2, paciente.getNombre()));
@@ -94,7 +94,7 @@ public class ImplPaciente implements IPaciente {
     @Override
     public Paciente obtener(String codigo) throws Exception {
         Paciente doc = null;
-        String csql = "select codigo, nombre, apellido, fechaIng, fechaSal, enfermedad from Paciente where codigo=?";
+        String csql = "select codigo, nombre, apellido, fechaIng, fechaSali, enfermedad from Paciente where codigo=?";
         ArrayList<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, codigo));
         Conexion con = null;
@@ -109,6 +109,7 @@ public class ImplPaciente implements IPaciente {
                 doc.setApellido(rst.getString(3));
                 doc.setFechaIng(rst.getDate(4));
                 doc.setFechaSal(rst.getDate(5));
+                doc.setEnfermedad(rst.getString(6));
             }
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage() + " " + e.getLocalizedMessage());
@@ -123,7 +124,7 @@ public class ImplPaciente implements IPaciente {
     @Override
     public ArrayList<Paciente> obtener() throws Exception {
         ArrayList<Paciente> docs = new ArrayList<>();
-        String csql="select codigo, nombre, apellido, fechaIng, fechaSal, enfermedad from Paciente";
+        String csql="select codigo, nombre, apellido, fechaIng, fechaSali, enfermedad from Paciente";
         Conexion con=null;
         try {
             con=new Conexion();

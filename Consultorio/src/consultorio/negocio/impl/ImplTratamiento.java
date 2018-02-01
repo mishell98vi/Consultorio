@@ -8,7 +8,7 @@ public class ImplTratamiento implements ITratamiento{
     @Override
     public int insertar(Tratamiento tratamiento) throws Exception {
         int nFilas = 0;
-        String csql = "Insert into Tratamiento (codigoD, codigoP, diagnostico, receta, tratamiento) Values (?,?,?,?,?)";
+        String csql = "Insert into Tratamiento (codDoctor, codPaciente, diagnostico, receta, tratamiento) Values (?,?,?,?,?)";
         ArrayList<Parametro> lstP = new ArrayList<>();
         lstP.add(new Parametro(1, tratamiento.getDoctor().getCodigo()));
         lstP.add(new Parametro(2, tratamiento.getPaciente().getCodigo()));
@@ -32,7 +32,7 @@ public class ImplTratamiento implements ITratamiento{
     @Override
     public int modificar(Tratamiento tratamiento) throws Exception {
         int nFilas=0;
-        String csql="Update Tratamiento Set codigoD=?, codigoP=?, diagnostico=?, receta=?, tratameinto=? Where codigoD=? or codigoP=?";
+        String csql="Update Tratamiento Set codDoctor=?, codPaciente=?, diagnostico=?, receta=?, tratamiento=? Where codigoD=? or codigoP=?";
         ArrayList<Parametro> lstPar=new ArrayList<>();
         lstPar.add(new Parametro(1, tratamiento.getDoctor().getCodigo()));
         lstPar.add(new Parametro(2, tratamiento.getPaciente().getCodigo()));
@@ -84,13 +84,14 @@ public class ImplTratamiento implements ITratamiento{
         IDoctor doctorDao=new ImplDoctor();
         Paciente paciente=null;
         IPaciente pacienteDao=new ImplPaciente();
-        String csql = "Select codigoD, codigoP, diagnostico, receta, tratamiento From Tratamiento Where codigoD=? and codigoP=?";
+        String csql = "select codDoctor, codPaciente, diagnostico, receta, tratamiento from Tratamiento Where codDoctor=? and codPaciente=?";
         ArrayList<Parametro> lstPar = new ArrayList<>();
         lstPar.add(new Parametro(1, codigoD));
         lstPar.add(new Parametro(2, codigoP));
         Conexion con = null;
         try {
             con = new Conexion();
+            con.conectar();
             ResultSet rst = con.ejecutarQuery(csql, lstPar);
             while (rst.next()) {
                 doctor=new Doctor();
@@ -121,7 +122,7 @@ public class ImplTratamiento implements ITratamiento{
         IDoctor doctorDao=new ImplDoctor();
         Paciente paciente=null;
         IPaciente pacienteDao=new ImplPaciente();
-        String csql="select codigoD, codigoP, diagnostico, receta, tratamiento from Tratamiento";
+        String csql="select codDoctor, codPaciente, diagnostico, receta, tratamiento from Tratamiento";
         Conexion con=null;
         try {
             con=new Conexion();

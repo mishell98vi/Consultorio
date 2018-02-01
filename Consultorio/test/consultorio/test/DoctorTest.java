@@ -18,7 +18,7 @@ public class DoctorTest {
 
 // TEST INSERTAR
         int filas = 0;
-        Doctor doc = new Doctor("1", "mishell","Viteri","Cardiologa","7 am a 5 pm");
+        Doctor doc = new Doctor("2", "mishell","Viteri","nEUROLOGA","7 am a 5 pm");
         try {
             filas = doctorDao.insertar(doc);
             System.out.println("Ingreso de " + filas + " Filas Correctas");
@@ -32,7 +32,7 @@ public class DoctorTest {
         Doctor ndoctor = new Doctor();
         try {
             ndoctor = doctorDao.obtener("1");
-            System.out.println(ndoctor.getCodigo()+ "    " + ndoctor.getNombre()+ "    " + ndoctor.getApellido()+ "    " + ndoctor.getEspeciadlidad()+ "    " + ndoctor.getHorario());
+            System.out.println(ndoctor.getCodigo()+ "    " + ndoctor.getNombre()+ "    " + ndoctor.getApellido()+ "    " + ndoctor.getEspecialidad()+ "    " + ndoctor.getHorario());
         } catch (Exception e) {
         }
         assertEquals(ndoctor!=null, true);
@@ -44,7 +44,7 @@ public class DoctorTest {
             doctores = doctorDao.obtener();
             System.out.println("\n\n");
             for (Doctor doctor : doctores) {
-                System.out.println(doctor.getCodigo()+ "    " + doctor.getNombre()+ "    " + doctor.getApellido()+ "    " + doctor.getEspeciadlidad()+ "    " + doctor.getHorario()+ "\t\t");
+                System.out.println(doctor.getCodigo()+ "    " + doctor.getNombre()+ "    " + doctor.getApellido()+ "    " + doctor.getEspecialidad()+ "    " + doctor.getHorario()+ "\t\t");
             }
         } catch (Exception e) {
         }

@@ -17,15 +17,15 @@ public class PacienteTest {
         IPaciente pacienteDao = new ImplPaciente();
 
 // TEST INSERTAR
-        int filas = 0;
-        Paciente paci = new Paciente("1", "Jhon", "Loza", new Date(), new Date(), "Gripe");
-        try {
-            filas = pacienteDao.insertar(paci);
-            System.out.println("Ingreso de " + filas + " Filas Correctas");
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-        assertTrue(filas > 0);
+//        int filas = 0;
+//        Paciente paci = new Paciente("1", "Jhon", "Loza", new Date(), new Date(), "Gripe");
+//        try {
+//            filas = pacienteDao.insertar(paci);
+//            System.out.println("Ingreso de " + filas + " Filas Correctas");
+//        } catch (Exception e) {
+//            System.out.println("Error: " + e.getMessage());
+//        }
+//        assertTrue(filas > 0);
 
 //TEST OBTENER POR CODIGO
 
