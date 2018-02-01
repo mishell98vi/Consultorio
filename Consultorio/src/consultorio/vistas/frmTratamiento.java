@@ -9,6 +9,6 @@ package consultorio.vistas;
  *
  * @author SONY
  */
-public class nm {
+public class frmTratamiento {
     
 }
