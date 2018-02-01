@@ -5,6 +5,6 @@ public interface ITratamiento {
     public int insertar (Tratamiento doctor) throws Exception;
     public int modificar (Tratamiento doctor) throws Exception;
     public int eliminar (Tratamiento doctor) throws Exception;
-    public Tratamiento obtener(String codigo) throws Exception;
+    public Tratamiento obtener(String codigoD, String codigoP) throws Exception;
     public ArrayList<Tratamiento> obtener () throws Exception;
 }

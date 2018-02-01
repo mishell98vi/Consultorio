@@ -78,15 +78,16 @@ public class ImplTratamiento implements ITratamiento{
     }
 
     @Override
-    public Tratamiento obtener(String codigo) throws Exception {
+    public Tratamiento obtener(String codigoD, String codigoP) throws Exception {
         Tratamiento trata = null;
         Doctor doctor=null;
         IDoctor doctorDao=new ImplDoctor();
         Paciente paciente=null;
         IPaciente pacienteDao=new ImplPaciente();
-        String csql = "Select codigoD, codigoP, diagnostico, receta, tratamiento From Tratamiento Where codigo=?";
+        String csql = "Select codigoD, codigoP, diagnostico, receta, tratamiento From Tratamiento Where codigoD=? and codigoP=?";
         ArrayList<Parametro> lstPar = new ArrayList<>();
-        lstPar.add(new Parametro(1, codigo));
+        lstPar.add(new Parametro(1, codigoD));
+        lstPar.add(new Parametro(2, codigoP));
         Conexion con = null;
         try {
             con = new Conexion();
