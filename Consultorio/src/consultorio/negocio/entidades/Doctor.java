@@ -3,17 +3,17 @@ public class Doctor {
     private String codigo;
     private String nombre;
     private String apellido;
-    private String especiadlidad;
+    private String especialidad;
     private String horario;
 
     public Doctor() {
     }
 
-    public Doctor(String codigo, String nombre, String apellido, String especiadlidad, String horario) {
+    public Doctor(String codigo, String nombre, String apellido, String especialidad, String horario) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.especiadlidad = especiadlidad;
+        this.especialidad = especialidad;
         this.horario = horario;
     }
 
@@ -41,12 +41,12 @@ public class Doctor {
         this.apellido = apellido;
     }
 
-    public String getEspeciadlidad() {
-        return especiadlidad;
+    public String getEspecialidad() {
+        return especialidad;
     }
 
-    public void setEspeciadlidad(String especiadlidad) {
-        this.especiadlidad = especiadlidad;
+    public void setEspecialidad(String especialidad) {
+        this.especialidad = especialidad;
     }
 
     public String getHorario() {
