@@ -5,7 +5,7 @@ import java.util.*;
 public class Conexion {
     Scanner entrada = new Scanner(System.in);
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    String url = "jdbc:sqlserver://172.30.57.144:1433;databaseName=Tratamiento";
+    String url = "jdbc:sqlserver://172.30.3.77:1433;databaseName=Tratamiento";
     String usr = "mishell";
     String pass = "123";
     Connection con = null;
